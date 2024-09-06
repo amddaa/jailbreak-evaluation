@@ -38,7 +38,7 @@ python -c "import nltk; nltk.download('punkt')"
 
 ## Quick Start
 Evaluate a Language Model Jailbreak Attempt Using jailbreak-evaluation.
-You should have an Azure OpenAI API key to use the jailbreak-evaluation, which can be obtained from [OpenAI Platform](https://platform.openai.com/api-keys).
+You should have an Azure OpenAI API key to use the jailbreak-evaluation.
 
 ```python
 from jailbreak_evaluation import MultifacetedEvaluation
