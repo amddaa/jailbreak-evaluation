@@ -4,7 +4,7 @@ import re
 
 from fastchat.model import get_conversation_template
 from nltk.tokenize import sent_tokenize
-from openai import OpenAI
+from openai import AzureOpenAI
 from openai.types.chat.chat_completion import ChatCompletion
 from tenacity import retry, stop_after_attempt
 
@@ -34,9 +34,9 @@ class MultifacetedEvaluationResult:
 
 
 class MultifacetedEvaluation:
-    def __init__(self, openai_api_key: str) -> None:
-        self.openai_client = OpenAI(api_key=openai_api_key)
-        self.model_version = "gpt-4"
+    def __init__(self, openai_api_key: str, openai_api_version: str, openai_azure_endpoint: str, deployment_name: str) -> None:
+        self.openai_client = AzureOpenAI(api_key=openai_api_key, api_version=openai_api_version, azure_endpoint=openai_azure_endpoint)
+        self.model_version = deployment_name
 
         self.path_compatible_model_version = self.model_version.replace("/", "-")
 
